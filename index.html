@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══ PRIMARY SEO ══════════════════════════════════════════ -->
+<title>Free Shopify Section Schema Builder — Generate Liquid Schema JSON Instantly</title>
+<meta name="description" content="Free Shopify section schema builder tool. Generate valid Shopify Liquid schema JSON instantly — no coding needed. Add settings, blocks, and all 22 field types visually. Built by Hussnain, expert Shopify & WordPress developer.">
+<meta name="keywords" content="shopify section schema builder, shopify schema generator, shopify liquid schema, shopify section json, shopify theme development tool, shopify schema tool free, generate shopify schema, shopify settings schema, shopify blocks schema, free shopify developer tools, shopify liquid json generator">
+<meta name="author" content="Hussnain — Shopify & WordPress Developer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hussnain926.github.io/shopify-schema-builder/">
+
+<!-- ══ OPEN GRAPH (Facebook, LinkedIn, WhatsApp preview) ════ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hussnain926.github.io/shopify-schema-builder/">
+<meta property="og:title" content="Free Shopify Section Schema Builder — Generate JSON Instantly">
+<meta property="og:description" content="Stop writing Shopify section schemas by hand. Build them visually in seconds — pick field types, configure settings, copy the JSON. 100% free, no signup required.">
+<meta property="og:image" content="https://hussnain926.github.io/shopify-schema-builder/preview.png">
+<meta property="og:site_name" content="Shopify Schema Builder by Hussnain">
+<meta property="og:locale" content="en_US">
+
+<!-- ══ TWITTER CARD ═════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Shopify Section Schema Builder">
+<meta name="twitter:description" content="Build Shopify section schemas visually. 22 field types, live JSON preview, copy to .liquid in one click. 100% free.">
+<meta name="twitter:image" content="https://hussnain926.github.io/shopify-schema-builder/preview.png">
+
+<!-- ══ STRUCTURED DATA — Google Rich Results ════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Shopify Section Schema Builder",
+  "url": "https://hussnain926.github.io/shopify-schema-builder/",
+  "description": "Free visual tool to generate Shopify section schema JSON. Supports all 22 Shopify field types including text, select, range, image_picker, video_url, color, font_picker, richtext, and more. No signup required, works offline, runs in browser.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Person",
+    "name": "Hussnain",
+    "url": "https://hussnain926.github.io/",
+    "telephone": "+923055498557",
+    "jobTitle": "Shopify & WordPress Developer"
+  },
+  "featureList": [
+    "22 Shopify field types supported",
+    "Live JSON schema preview with syntax highlighting",
+    "Blocks support with max_blocks setting",
+    "Copy as JSON or wrap in .liquid schema tags",
+    "Auto-generate field IDs from labels",
+    "No signup or account required",
+    "Works completely offline"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Hussnain — Shopify Developer Portfolio","item":"https://hussnain926.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Free Shopify Schema Builder Tool","item":"https://hussnain926.github.io/shopify-schema-builder/"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0d0f;--s1:#141618;--s2:#1b1d21;--s3:#222529;
+  --b1:#272a2f;--b2:#353840;
+  --text:#dde1e7;--muted:#7d8591;--faint:#464c58;
+  --accent:#96bf48;--accent2:#7faa38;--glow:rgba(150,191,72,.12);
+  --danger:#e05050;--info:#5b9cf6;--r:8px;--rs:5px;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;font-size:14px;line-height:1.5}
+.hdr{display:flex;align-items:center;gap:14px;padding:0 18px;height:54px;border-bottom:1px solid var(--b1);background:var(--s1);flex-shrink:0}
+.logo{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.logo-icon{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#0c0d0f;font-weight:800;font-family:'JetBrains Mono',monospace}
+.logo em{color:var(--accent);font-style:normal}
+.hdiv{width:1px;height:20px;background:var(--b1);flex-shrink:0}
+.hg{display:flex;align-items:center;gap:7px}
+.hlbl{font-size:10px;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.hin{background:var(--s2);border:1px solid var(--b1);border-radius:var(--rs);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:5px 9px;outline:none;transition:border-color .15s}
+.hin:focus{border-color:var(--accent)}
+.hin.w160{width:160px}.hin.w90{width:90px}
+.hacts{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cmsg{font-size:12px;color:var(--accent);opacity:0;transition:opacity .3s;white-space:nowrap}
+.cmsg.show{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:var(--rs);font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--b2);background:var(--s2);color:var(--text);transition:all .15s;font-family:'DM Sans',sans-serif;white-space:nowrap;text-decoration:none}
+.btn:hover{background:var(--s3)}
+.btn.primary{background:var(--accent);color:#0c0d0f;border-color:var(--accent);font-weight:600}
+.btn.primary:hover{background:var(--accent2)}
+.btn.ghost{background:transparent;border-color:var(--b2);color:var(--muted)}
+.btn.ghost:hover{color:var(--text)}
+.btn.sm{padding:4px 9px;font-size:12px}
+.btn.xs{padding:3px 7px;font-size:11px}
+.btn.ic{padding:5px;width:26px;height:26px;justify-content:center;border-color:transparent;background:transparent;color:var(--faint)}
+.btn.ic:hover{background:var(--s3);color:var(--text);border-color:var(--b1)}
+.btn.ic.del:hover{background:rgba(224,80,80,.12);color:var(--danger);border-color:transparent}
+.btn.wa{background:#25d366;color:#fff;border-color:#25d366}
+.btn.wa:hover{background:#1fbd59}
+.tabs{display:flex;border-bottom:1px solid var(--b1);background:var(--s1);flex-shrink:0;padding:0 16px}
+.tab{padding:9px 16px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;user-select:none}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.main{display:flex;flex:1;overflow:hidden}
+.lpanel{width:210px;flex-shrink:0;border-right:1px solid var(--b1);background:var(--s1);overflow-y:auto;display:flex;flex-direction:column}
+.lpctx{padding:8px 12px;border-bottom:1px solid var(--b1);font-size:11px;color:var(--muted);background:var(--glow);border-left:2px solid var(--accent)}
+.lpctx b{color:var(--accent)}
+.lptitle{font-size:10px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;padding:12px 14px 5px}
+.ftype{display:flex;align-items:center;gap:8px;padding:6px 14px;cursor:pointer;border:none;background:none;color:var(--muted);font-size:12.5px;font-family:'DM Sans',sans-serif;width:100%;text-align:left;transition:background .1s,color .1s}
+.ftype:hover{background:var(--s2);color:var(--text)}
+.ftype:hover .fi{color:var(--accent)}
+.fi{width:16px;text-align:center;font-size:12px;color:var(--faint);flex-shrink:0;font-family:'JetBrains Mono',monospace;transition:color .1s}
+.cpanel{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex:1;min-height:200px;color:var(--faint);text-align:center;padding:40px}
+.empty-icon{font-size:36px;opacity:.4;font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--accent)}
+.empty p{font-size:13px;line-height:1.7;max-width:220px}
+.fcard{background:var(--s2);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.fcard.open{border-color:var(--accent)}
+.fcard-hdr{display:flex;align-items:center;gap:8px;padding:9px 11px;cursor:pointer;user-select:none;min-height:42px}
+.fcard-hdr:hover{background:var(--s3)}
+.fbadge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;background:var(--glow);color:var(--accent);flex-shrink:0;white-space:nowrap}
+.fclbl{flex:1;font-size:13px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fcid{font-size:11px;color:var(--faint);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+.facts{display:flex;gap:1px;opacity:0;transition:opacity .15s;flex-shrink:0}
+.fcard-hdr:hover .facts,.fcard.open .facts{opacity:1}
+.fcfg{padding:12px 14px;border-top:1px solid var(--b1);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg.full{grid-column:1/-1}
+.flbl{font-size:11px;color:var(--muted);font-weight:500}
+.finp{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);color:var(--text);font-size:13px;padding:5px 8px;outline:none;font-family:'DM Sans',sans-serif;transition:border-color .15s;width:100%}
+.finp:focus{border-color:var(--accent)}
+.finp.mono{font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.fsel{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);color:var(--text);font-size:13px;padding:5px 8px;outline:none;font-family:'DM Sans',sans-serif;width:100%;cursor:pointer;-webkit-appearance:none}
+.fhint{font-size:10px;color:var(--faint);margin-top:2px;line-height:1.4}
+.fopts{display:flex;flex-direction:column;gap:5px;margin-bottom:6px}
+.fopt-row{display:flex;gap:4px;align-items:center}
+.fopt-row .finp{flex:1}
+.remopt{background:none;border:none;color:var(--faint);cursor:pointer;font-size:18px;line-height:1;padding:0 2px;transition:color .1s;flex-shrink:0}
+.remopt:hover{color:var(--danger)}
+.cbxg{display:flex;gap:14px}
+.cbxi{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);cursor:pointer}
+.cbxi input{accent-color:var(--accent)}
+.clrow{display:flex;gap:6px;align-items:center}
+.clrow input[type=color]{width:44px;height:30px;padding:2px 3px;cursor:pointer;border-radius:var(--rs);border:1px solid var(--b1);background:var(--s1)}
+.bcard{background:var(--s2);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.bcard.ab{border-color:var(--info)}
+.bcard-hdr{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;user-select:none}
+.bcard-hdr:hover{background:var(--s3)}
+.bbadge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;background:rgba(91,156,246,.14);color:var(--info);flex-shrink:0}
+.bbody{padding:12px;border-top:1px solid var(--b1)}
+.bmeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.bhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.slbl{font-size:10px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.07em}
+.bfields{display:flex;flex-direction:column;gap:6px}
+.selbtn{font-size:11px;padding:3px 8px;border-radius:var(--rs);background:transparent;border:1px solid var(--b2);color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.selbtn:hover,.selbtn.sel{background:rgba(91,156,246,.12);border-color:var(--info);color:var(--info)}
+.abind{font-size:11px;color:var(--info);padding:4px 10px;background:rgba(91,156,246,.08);border-radius:var(--rs);margin-bottom:10px;border:1px solid rgba(91,156,246,.2)}
+.rpanel{width:370px;flex-shrink:0;border-left:1px solid var(--b1);display:flex;flex-direction:column;background:var(--s1)}
+.rphdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--b1);flex-shrink:0;gap:10px}
+.rptitle{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+.outwrap{flex:1;overflow:auto;padding:14px}
+.outpre{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.75;white-space:pre;color:var(--muted)}
+.outpre .jk{color:#c8a4f8}
+.outpre .js{color:#98d67c}
+.outpre .jn{color:#f5a623}
+.outpre .jb{color:#62c4fb}
+.outpre .jnu{color:var(--faint)}
+.togwrap{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.tog{width:30px;height:17px;background:var(--b2);border-radius:9px;position:relative;cursor:pointer;border:none;transition:background .15s;flex-shrink:0}
+.tog.on{background:var(--accent)}
+.tog::after{content:'';position:absolute;width:11px;height:11px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform .15s}
+.tog.on::after{transform:translateX(13px)}
+/* HIRE FOOTER */
+.hirebar{padding:12px 14px;border-top:1px solid var(--b1);background:var(--s2);flex-shrink:0}
+.hiretop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.hirename{font-size:13px;font-weight:600;color:var(--text)}
+.hirename span{color:var(--accent)}
+.hirerole{font-size:11px;color:var(--muted);margin-top:2px}
+.hirebtns{display:flex;gap:6px;flex-wrap:wrap}
+.hdivider{height:1px;background:var(--b1);margin:10px 0 8px}
+.seotext{font-size:10px;color:var(--faint);line-height:1.5}
+.fhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- H1 for SEO crawlers (visually hidden) -->
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Free Shopify Section Schema Builder — Generate Liquid Schema JSON Instantly</h1>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="https://hussnain926.github.io/" target="_blank" rel="noopener" class="logo" title="Hussnain — Shopify Developer Portfolio">
+    <div class="logo-icon">{}</div>
+    Schema<em>Builder</em>
+  </a>
+  <div class="hdiv"></div>
+  <div class="hg"><span class="hlbl">Name</span><input class="hin w160" id="h-name" value="My Section" placeholder="Section name" oninput="S.name=this.value;r()"></div>
+  <div class="hg"><span class="hlbl">Tag</span><input class="hin w90" id="h-tag" value="section" placeholder="section" oninput="S.tag=this.value;r()"></div>
+  <div class="hg"><span class="hlbl">Class</span><input class="hin w90" id="h-class" value="section" placeholder="section" oninput="S.cls=this.value;r()"></div>
+  <div class="hacts">
+    <span class="cmsg" id="cmsg">✓ Copied!</span>
+    <button class="btn ghost" onclick="cpLiquid()" title="Wrap in Liquid schema tags">{% %} .liquid</button>
+    <button class="btn primary" onclick="cpJSON()">Copy JSON</button>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" id="tab-settings" onclick="tab('settings')">⚙ Settings</div>
+  <div class="tab" id="tab-blocks" onclick="tab('blocks')">⊞ Blocks</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT: field type palette -->
+  <nav class="lpanel" aria-label="Shopify field types">
+    <div id="lpctx"></div>
+    <div class="lptitle">Text</div>
+    <button class="ftype" onclick="add('text')"><span class="fi">T</span>text</button>
+    <button class="ftype" onclick="add('textarea')"><span class="fi">¶</span>textarea</button>
+    <button class="ftype" onclick="add('richtext')"><span class="fi">R</span>richtext</button>
+    <button class="ftype" onclick="add('inline_richtext')"><span class="fi">r</span>inline_richtext</button>
+    <button class="ftype" onclick="add('html')"><span class="fi">&lt;&gt;</span>html</button>
+    <button class="ftype" onclick="add('number')"><span class="fi">#</span>number</button>
+    <button class="ftype" onclick="add('liquid')"><span class="fi">lq</span>liquid</button>
+    <div class="lptitle">Controls</div>
+    <button class="ftype" onclick="add('select')"><span class="fi">▾</span>select</button>
+    <button class="ftype" onclick="add('radio')"><span class="fi">◉</span>radio</button>
+    <button class="ftype" onclick="add('checkbox')"><span class="fi">☑</span>checkbox</button>
+    <button class="ftype" onclick="add('range')"><span class="fi">⇤⇥</span>range</button>
+    <div class="lptitle">Media</div>
+    <button class="ftype" onclick="add('image_picker')"><span class="fi">img</span>image_picker</button>
+    <button class="ftype" onclick="add('video_url')"><span class="fi">▶</span>video_url</button>
+    <button class="ftype" onclick="add('color')"><span class="fi">●</span>color</button>
+    <button class="ftype" onclick="add('color_background')"><span class="fi">◐</span>color_background</button>
+    <button class="ftype" onclick="add('font_picker')"><span class="fi">Aa</span>font_picker</button>
+    <div class="lptitle">Links</div>
+    <button class="ftype" onclick="add('url')"><span class="fi">↗</span>url</button>
+    <button class="ftype" onclick="add('collection')"><span class="fi">◫</span>collection</button>
+    <button class="ftype" onclick="add('product')"><span class="fi">◧</span>product</button>
+    <button class="ftype" onclick="add('blog')"><span class="fi">◭</span>blog</button>
+    <button class="ftype" onclick="add('page')"><span class="fi">□</span>page</button>
+    <div class="lptitle">Layout</div>
+    <button class="ftype" onclick="add('header')"><span class="fi">—</span>header</button>
+    <button class="ftype" onclick="add('paragraph')"><span class="fi">§</span>paragraph</button>
+  </nav>
+
+  <!-- CENTER -->
+  <main class="cpanel" id="cpanel"></main>
+
+  <!-- RIGHT: live output + hire me -->
+  <aside class="rpanel">
+    <div class="rphdr">
+      <span class="rptitle">Live Schema Output</span>
+      <label class="togwrap">
+        <button class="tog on" id="ptog" onclick="S.presets=!S.presets;this.classList.toggle('on');r()"></button>
+        <span>Presets</span>
+      </label>
+    </div>
+    <div class="outwrap"><pre class="outpre" id="outpre"></pre></div>
+
+    <!-- CLIENT MAGNET FOOTER -->
+    <div class="hirebar">
+      <div class="hiretop">
+        <div>
+          <div class="hirename">Hussnain <span>·</span> Shopify &amp; WordPress Developer</div>
+          <div class="hirerole">Available for freelance projects — worldwide</div>
+        </div>
+      </div>
+      <div class="hirebtns">
+        <a href="https://hussnain926.github.io/" target="_blank" rel="noopener" class="btn sm">🌐 Portfolio</a>
+        <a href="https://wa.me/923055498557?text=Hi%20Hussnain%2C%20I%20found%20your%20Shopify%20Schema%20Builder%20tool%20and%20need%20help%20with%20my%20store." target="_blank" rel="noopener" class="btn wa sm">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:+923055498557" class="btn sm ghost">📞 0305-5498557</a>
+      </div>
+      <div class="hdivider"></div>
+      <p class="seotext">Free Shopify section schema builder — supports all 22 field types: text, textarea, richtext, select, radio, checkbox, range, image_picker, video_url, color, font_picker, collection, product, blog, page, url, html, liquid &amp; more. Built by Hussnain, Shopify &amp; WordPress developer.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+let _u=0;const uid=()=>'f'+(++_u);
+const S={tab:'settings',name:'My Section',tag:'section',cls:'section',presets:true,maxBlocks:'',settings:[],blocks:[],exp:null,ab:null};
+const LBL={text:'Heading',textarea:'Description',richtext:'Rich Content',inline_richtext:'Inline Text',html:'HTML Code',number:'Number Value',liquid:'Liquid',select:'Choose Option',radio:'Select Option',checkbox:'Enable Feature',range:'Range Value',color:'Color',color_background:'Background',font_picker:'Font',image_picker:'Image',video_url:'Video',url:'Link URL',collection:'Collection',product:'Product',blog:'Blog',page:'Page',header:'Section Header',paragraph:'Paragraph'};
+const SLG={text:'heading',textarea:'description',richtext:'content',inline_richtext:'text',html:'custom_html',number:'number',liquid:'liquid',select:'option',radio:'radio_option',checkbox:'enable',range:'value',color:'color',color_background:'background',font_picker:'font',image_picker:'image',video_url:'video_url',url:'link',collection:'collection',product:'product',blog:'blog',page:'page',header:'',paragraph:''};
+function mk(t){
+  const b={_id:uid(),type:t,label:LBL[t]||t,fieldId:SLG[t]||t,info:'',_m:false};
+  if(t==='header')return{...b,content:'Section Header',fieldId:undefined};
+  if(t==='paragraph')return{...b,content:'<p>Add your description here.</p>',fieldId:undefined};
+  if(t==='select'||t==='radio')return{...b,default:'option_1',options:[{label:'Option 1',value:'option_1'},{label:'Option 2',value:'option_2'}]};
+  if(t==='checkbox')return{...b,default:false};
+  if(t==='range')return{...b,min:0,max:100,step:1,unit:'px',default:50};
+  if(t==='color')return{...b,default:'#ffffff'};
+  if(t==='color_background')return{...b,default:''};
+  if(t==='video_url')return{...b,accept:['youtube','vimeo'],placeholder:''};
+  if(t==='font_picker')return{...b,default:'assistant_n4'};
+  if(t==='number')return{...b,default:'',placeholder:''};
+  return{...b,default:'',placeholder:''};
+}
+const x=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const slg=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
+const ff=id=>S.settings.find(f=>f._id===id)||S.blocks.flatMap(b=>b.settings).find(f=>f._id===id);
+const fa=id=>{if(S.settings.find(f=>f._id===id))return S.settings;for(const b of S.blocks)if(b.settings.find(f=>f._id===id))return b.settings;return null};
+function add(t){
+  const f=mk(t);
+  if(S.tab==='blocks'){
+    if(!S.ab&&!S.blocks.length){const b={_id:uid(),type:'text',name:'Text',settings:[]};S.blocks.push(b);S.ab=b._id;}
+    if(S.ab){const b=S.blocks.find(b=>b._id===S.ab);if(b){b.settings.push(f);S.exp=f._id;r();return;}}
+  }
+  S.settings.push(f);S.exp=f._id;r();
+}
+function del(id){S.settings=S.settings.filter(f=>f._id!==id);S.blocks.forEach(b=>{b.settings=b.settings.filter(f=>f._id!==id)});if(S.exp===id)S.exp=null;r()}
+function mv(id,d){const a=fa(id);if(!a)return;const i=a.findIndex(f=>f._id===id),j=i+d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];r()}
+function tg(id){S.exp=S.exp===id?null:id;r()}
+function up(id,k,v){const f=ff(id);if(!f)return;if(k==='label'&&!f._m)f.fieldId=slg(v);f[k]=v;r()}
+function upid(id,v){const f=ff(id);if(!f)return;f.fieldId=v;f._m=true;r()}
+function ao(fid){const f=ff(fid);if(!f)return;const n=(f.options||[]).length+1;(f.options=f.options||[]).push({label:`Option ${n}`,value:`option_${n}`});r()}
+function ro(fid,i){const f=ff(fid);if(f){f.options.splice(i,1);r()}}
+function uo(fid,i,k,v){const f=ff(fid);if(f){f.options[i][k]=v;r()}}
+function ta(fid,p,on){const f=ff(fid);if(!f)return;f.accept=f.accept||[];if(on&&!f.accept.includes(p))f.accept.push(p);if(!on)f.accept=f.accept.filter(a=>a!==p);r()}
+function ab(){const b={_id:uid(),type:'text',name:'Text',settings:[]};S.blocks.push(b);S.ab=b._id;r()}
+function rb(id){S.blocks=S.blocks.filter(b=>b._id!==id);if(S.ab===id)S.ab=S.blocks[0]?._id||null;r()}
+function ub(id,k,v){const b=S.blocks.find(b=>b._id===id);if(b){b[k]=v;r()}}
+function sb(id){S.ab=S.ab===id?null:id;r()}
+function tab(t){S.tab=t;['settings','blocks'].forEach(n=>document.getElementById('tab-'+n).classList.toggle('active',n===t));r()}
+
+function cfg(f){
+  const id=f._id,t=f.type;
+  const rw=(l,i)=>`<div class="fg"><label class="flbl">${l}</label>${i}</div>`;
+  const rwf=(l,i)=>`<div class="fg full"><label class="flbl">${l}</label>${i}</div>`;
+  const inp=(k,v,o='')=>`<input class="finp" value="${x(v)}" ${o} oninput="up('${id}','${k}',this.value)">`;
+  const irow=rwf('Info <small style="color:var(--faint)">(optional)</small>',inp('info',f.info||'','placeholder="Helper text below field"'));
+  if(t==='header')return`<div class="fcfg">${rwf('Header text',inp('content',f.content||'','placeholder="Section Title"'))}${rwf('Info',inp('info',f.info||'','placeholder="Optional description"'))}</div>`;
+  if(t==='paragraph')return`<div class="fcfg">${rwf('Content (HTML allowed)',inp('content',f.content||''))}</div>`;
+  const com=`${rw('Label',`<input class="finp" value="${x(f.label)}" oninput="up('${id}','label',this.value)">`)}${rw('ID',`<input class="finp mono" value="${x(f.fieldId||'')}" oninput="upid('${id}',this.value)">`)}`;
+  let ex='';
+  if(['text','textarea','richtext','inline_richtext','html'].includes(t)){ex=`${rw('Default',inp('default',f.default||''))}${rw('Placeholder',inp('placeholder',f.placeholder||''))}${irow}`;}
+  else if(t==='number'){ex=`${rw('Default',`<input class="finp" type="number" value="${x(f.default)}" oninput="up('${id}','default',this.value)">`)}${rw('Placeholder',inp('placeholder',f.placeholder||''))}${irow}`;}
+  else if(t==='range'){ex=`${rw('Min',`<input class="finp" type="number" value="${x(f.min)}" oninput="up('${id}','min',+this.value)">`)}${rw('Max',`<input class="finp" type="number" value="${x(f.max)}" oninput="up('${id}','max',+this.value)">`)}${rw('Step',`<input class="finp" type="number" value="${x(f.step)}" oninput="up('${id}','step',+this.value)">`)}${rw('Unit',inp('unit',f.unit||'','placeholder="px, %…"'))}${rw('Default',`<input class="finp" type="number" value="${x(f.default)}" oninput="up('${id}','default',+this.value)">`)}${irow}`;}
+  else if(t==='select'||t==='radio'){const opts=(f.options||[]).map((o,i)=>`<div class="fopt-row"><input class="finp" value="${x(o.label)}" placeholder="Label" oninput="uo('${id}',${i},'label',this.value)"><input class="finp mono" value="${x(o.value)}" placeholder="value" oninput="uo('${id}',${i},'value',this.value)"><button class="remopt" onclick="ro('${id}',${i})">×</button></div>`).join('');ex=`<div class="fg full"><label class="flbl">Options</label><div class="fopts">${opts}</div><button class="btn xs" onclick="ao('${id}')">+ Add option</button></div>${rw('Default value',inp('default',f.default||'','placeholder="Must match option value"'))}${irow}`;}
+  else if(t==='checkbox'){ex=`${rw('Default',`<select class="fsel" onchange="up('${id}','default',this.value==='true')"><option value="false" ${!f.default?'selected':''}>false — unchecked</option><option value="true" ${f.default?'selected':''}>true — checked</option></select>`)}${irow}`;}
+  else if(t==='color'){ex=`<div class="fg full"><label class="flbl">Default color</label><div class="clrow"><input type="color" value="${x(f.default||'#ffffff')}" oninput="up('${id}','default',this.value);this.nextElementSibling.value=this.value"><input class="finp mono" value="${x(f.default||'#ffffff')}" oninput="up('${id}','default',this.value);this.previousElementSibling.value=this.value" placeholder="#ffffff"></div></div>`;}
+  else if(t==='color_background'){ex=`${rwf('Default',inp('default',f.default||'','placeholder="#fff or linear-gradient(…)"'))}${irow}`;}
+  else if(t==='video_url'){const yt=(f.accept||[]).includes('youtube'),vi=(f.accept||[]).includes('vimeo');ex=`<div class="fg full"><label class="flbl">Accept</label><div class="cbxg"><label class="cbxi"><input type="checkbox" ${yt?'checked':''} onchange="ta('${id}','youtube',this.checked)"> YouTube</label><label class="cbxi"><input type="checkbox" ${vi?'checked':''} onchange="ta('${id}','vimeo',this.checked)"> Vimeo</label></div></div>${rwf('Placeholder',inp('placeholder',f.placeholder||'','placeholder="Paste a YouTube or Vimeo URL"'))}`;}
+  else if(t==='font_picker'){ex=`${rwf('Default font',`<input class="finp mono" value="${x(f.default||'assistant_n4')}" placeholder="assistant_n4" oninput="up('${id}','default',this.value)"><div class="fhint">Format: fontname_weight e.g. lato_n4, helvetica_neue_n4</div>`)}${irow}`;}
+  else if(t==='liquid'){ex=`${irow}<div class="fhint" style="margin-top:4px">Used for content_for_header and Liquid objects</div>`;}
+  else{ex=irow;}
+  return`<div class="fcfg">${com}${ex}</div>`;
+}
+
+function card(f){
+  const isL=f.type==='header'||f.type==='paragraph';
+  const exp=S.exp===f._id;
+  const prev=isL?(f.content||f.type).replace(/<[^>]+>/g,''):(f.label||f.type);
+  const idBit=(!isL&&f.fieldId)?f.fieldId:'';
+  return`<div class="fcard${exp?' open':''}" id="fc-${f._id}"><div class="fcard-hdr" onclick="tg('${f._id}')"><span class="fbadge">${x(f.type)}</span><span class="fclbl" title="${x(prev)}">${x(prev.length>38?prev.slice(0,36)+'…':prev)}</span>${idBit?`<span class="fcid">#${x(idBit)}</span>`:''}<div class="facts"><button class="btn ic" onclick="event.stopPropagation();mv('${f._id}',-1)" title="Move up">↑</button><button class="btn ic" onclick="event.stopPropagation();mv('${f._id}',1)" title="Move down">↓</button><button class="btn ic del" onclick="event.stopPropagation();del('${f._id}')" title="Delete">✕</button></div></div>${exp?cfg(f):''}</div>`;
+}
+
+function rSettings(){
+  if(!S.settings.length)return`<div class="empty"><div class="empty-icon">{  }</div><p>Click any field type on the left to start building your section schema</p></div>`;
+  return`<div class="fhdr"><span class="slbl">Settings (${S.settings.length})</span></div>${S.settings.map(card).join('')}`;
+}
+function rBlocks(){
+  const ab=S.ab,abn=ab?(S.blocks.find(b=>b._id===ab)||{}).name:null;
+  return`<div class="fhdr"><span class="slbl">Blocks (${S.blocks.length})</span><div style="display:flex;gap:6px;align-items:center">${S.blocks.length?`<span style="font-size:11px;color:var(--faint)">Max:</span><input class="finp mono" type="number" value="${x(S.maxBlocks)}" placeholder="—" style="width:50px;padding:3px 6px;font-size:12px" oninput="S.maxBlocks=this.value;r()">`:''}<button class="btn sm" onclick="ab()">+ Add block</button></div></div>${ab&&abn?`<div class="abind">▶ Click field types on the left to add to <b style="color:var(--info)">${x(abn)}</b></div>`:''}${!S.blocks.length?`<div class="empty"><div class="empty-icon">⊞</div><p>Blocks let merchants add repeatable content — slides, cards, tabs</p></div>`:''}${S.blocks.map(b=>`<div class="bcard${b._id===ab?' ab':''}"><div class="bcard-hdr" onclick="sb('${b._id}')"><span class="bbadge">${x(b.type)}</span><span style="flex:1;font-size:13px;font-weight:500">${x(b.name)}</span><button class="selbtn${b._id===ab?' sel':''}" onclick="event.stopPropagation();sb('${b._id}')">${b._id===ab?'✓ Active':'Select'}</button><button class="btn ic del" onclick="event.stopPropagation();rb('${b._id}')">✕</button></div><div class="bbody"><div class="bmeta"><div class="fg"><label class="flbl">Block name</label><input class="finp" value="${x(b.name)}" oninput="ub('${b._id}','name',this.value)"></div><div class="fg"><label class="flbl">Block type</label><input class="finp mono" value="${x(b.type)}" oninput="ub('${b._id}','type',this.value)"></div></div><div class="bhdr"><span class="slbl" style="font-size:10px">Settings (${b.settings.length})</span></div><div class="bfields">${b.settings.length?b.settings.map(card).join(''):`<div style="font-size:12px;color:var(--faint);padding:6px 0">${b._id===ab?'← Click a field type on the left':'Select this block, then click field types'}</div>`}</div></div></div>`).join('')}`;
+}
+
+function bld(f){
+  const s={type:f.type};
+  if(f.type==='header'){s.content=f.content||'';if(f.info)s.info=f.info;return s;}
+  if(f.type==='paragraph'){s.content=f.content||'';return s;}
+  s.id=f.fieldId||'field';s.label=f.label||'';
+  const t=f.type;
+  if(['text','textarea','richtext','inline_richtext','html'].includes(t)){if(f.default)s.default=f.default;if(f.placeholder)s.placeholder=f.placeholder;if(f.info)s.info=f.info;}
+  else if(t==='number'){if(f.default!=='')s.default=Number(f.default);if(f.placeholder)s.placeholder=f.placeholder;if(f.info)s.info=f.info;}
+  else if(t==='range'){s.min=Number(f.min)||0;s.max=Number(f.max)||100;s.step=Number(f.step)||1;if(f.unit)s.unit=f.unit;s.default=Number(f.default)||0;}
+  else if(t==='select'||t==='radio'){s.options=(f.options||[]).map(o=>({label:o.label,value:o.value}));if(f.default)s.default=f.default;if(f.info)s.info=f.info;}
+  else if(t==='checkbox'){s.default=!!f.default;if(f.info)s.info=f.info;}
+  else if(t==='color'||t==='color_background'){if(f.default)s.default=f.default;if(f.info)s.info=f.info;}
+  else if(t==='video_url'){s.accept=f.accept||['youtube','vimeo'];if(f.placeholder)s.placeholder=f.placeholder;}
+  else if(t==='font_picker'){if(f.default)s.default=f.default;if(f.info)s.info=f.info;}
+  else{if(f.info)s.info=f.info;}
+  return s;
+}
+function gen(){
+  const o={name:S.name||'My Section'};
+  if(S.tag&&S.tag!=='section')o.tag=S.tag;
+  if(S.cls&&S.cls!=='section')o.class=S.cls;
+  if(S.settings.length)o.settings=S.settings.map(bld);
+  if(S.blocks.length){o.blocks=S.blocks.map(b=>{const bl={type:b.type,name:b.name};if(b.settings.length)bl.settings=b.settings.map(bld);return bl});if(S.maxBlocks)o.max_blocks=Number(S.maxBlocks);}
+  if(S.presets)o.presets=[{name:S.name||'My Section'}];
+  return o;
+}
+function getJ(){return JSON.stringify(gen(),null,2)}
+function cpJSON(){navigator.clipboard.writeText(getJ()).then(fl)}
+function cpLiquid(){navigator.clipboard.writeText(`{% schema %}\n${getJ()}\n{% endschema %}`).then(fl)}
+function fl(){const e=document.getElementById('cmsg');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+function hl(j){
+  return j.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,m=>{
+      let c='jn';if(/^"/.test(m))c=/:$/.test(m)?'jk':'js';else if(/true|false/.test(m))c='jb';else if(/null/.test(m))c='jnu';
+      return`<span class="${c}">${m}</span>`;
+    });
+}
+function r(){
+  const ctx=document.getElementById('lpctx');
+  if(S.tab==='blocks'&&S.ab){const b=S.blocks.find(b=>b._id===S.ab);ctx.innerHTML=b?`<div class="lpctx">Adding to: <b>${x(b.name)}</b></div>`:''}
+  else if(S.tab==='blocks'){ctx.innerHTML=`<div class="lpctx">Select a block below, then add fields</div>`}
+  else ctx.innerHTML='';
+  document.getElementById('cpanel').innerHTML=S.tab==='settings'?rSettings():rBlocks();
+  document.getElementById('outpre').innerHTML=hl(getJ());
+}
+r();
+</script>
+</body>
+</html>
